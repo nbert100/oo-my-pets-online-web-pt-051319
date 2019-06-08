@@ -5,19 +5,20 @@ class Owner
   attr_reader :species
   
   @@all = []
-  @@pets = {
-      :fishes => [],
-      :cats => [],
-      :dogs => []
-    }
+  
     
   
   
   def initialize(species)
     @name = name
     @species = species
-    @@pets
+    @pets = {
+      :fishes => [],
+      :cats => [],
+      :dogs => []
+    }
     @@all << self
+    
   end
   
   def self.all
@@ -33,7 +34,7 @@ class Owner
   end
   
   def pets
-    @@pets 
+    @pets 
   end
   
   def say_species
@@ -41,37 +42,37 @@ class Owner
   end
   
   def buy_fish(fish)
-    @@pets[:fishes] << Fish.new(fish)
+    @pets[:fishes] << Fish.new(fish)
   end
   
   def buy_cat(cat)
-    @@pets[:cats] << Cat.new(cat)
+    @pets[:cats] << Cat.new(cat)
   end
   
   def buy_dog(dog)
-    @@pets[:dogs] << Dog.new(dog)
+    @pets[:dogs] << Dog.new(dog)
   end
   
   def walk_dogs
-    @@pets[:dogs].each do |dog|
+    @pets[:dogs].each do |dog|
     dog.mood = "happy"
   end
   end
   
   def play_with_cats
-    @@pets[:cats].each do |cat|
+    @pets[:cats].each do |cat|
       cat.mood = "happy"
     end
   end
   
   def feed_fish
-    @@pets[:fishes].each do |fish|
+    @pets[:fishes].each do |fish|
       fish.mood = "happy"
     end
   end
 
     def sell_pets
-    @@pets.each do |species, list|
+    @pets.each do |species, list|
       list.each do |pet|
         pet.mood = "nervous"
         #binding.pry
@@ -84,9 +85,9 @@ class Owner
   
   def list_pets
     #"I have 2 fish, 3 dog(s), and 1 cat(s)."
-    fish_count = @@pets[:fishes].size
-    dog_count = @@pets[:dogs].size
-    cat_count = @@pets[:cats].size
+    fish_count = @pets[:fishes].size
+    dog_count = @pets[:dogs].size
+    cat_count = @pets[:cats].size
     
     "I have #{fish_count} fish, #{dog_count} dog(s), and #{cat_count} cat(s)."
 
