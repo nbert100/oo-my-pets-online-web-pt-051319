@@ -5,7 +5,7 @@ class Owner
   attr_reader :species
   
   @@all = []
-  @@pets = {
+  @pets = {
       :fishes => [],
       :cats => [],
       :dogs => []
