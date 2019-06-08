@@ -5,18 +5,18 @@ class Owner
   attr_reader :species
   
   @@all = []
-  @pets = {
-      :fishes => [],
-      :cats => [],
-      :dogs => []
-    }
+  
     
   
   
   def initialize(species)
     @name = name
     @species = species
-    @pets
+    @pets = {
+      :fishes => [],
+      :cats => [],
+      :dogs => []
+    }
     @@all << self
     
   end
@@ -85,9 +85,9 @@ class Owner
   
   def list_pets
     #"I have 2 fish, 3 dog(s), and 1 cat(s)."
-    fish_count = @@pets[:fishes].size
-    dog_count = @@pets[:dogs].size
-    cat_count = @@pets[:cats].size
+    fish_count = @pets[:fishes].size
+    dog_count = @pets[:dogs].size
+    cat_count = @pets[:cats].size
     
     "I have #{fish_count} fish, #{dog_count} dog(s), and #{cat_count} cat(s)."
 
